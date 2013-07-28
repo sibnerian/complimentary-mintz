@@ -1,0 +1,36 @@
+<head>
+    <link rel="stylesheet" href="jquery-ui-1.10.3.custom.min.css">
+</head>
+
+<body>
+  {{> quoteEnter}}
+  {{> quotes}}
+</body>
+
+<template name="hello">
+  <h1>Hello World!</h1>
+  {{greeting}}
+  <input type="button" value="Click" />
+</template>
+
+<template name="quotes">
+    <div class="quotes">
+        {{#each quoteList}}
+        <div class="quote">{{text}}</div>
+        {{/each}}
+    </div>
+</template>
+
+<template name="quoteEnter">
+    {{#if entering}}
+        <p>Enter your favorite Mintz quote.</p>
+        <input class="quote-enter">
+        <p>What date was that?</p>
+        <input class="date">
+        <button class='submit'>Submit</button>
+        {{#if errors}}
+            <p>Please correct errors</p>
+        {{/if}}
+
+    {{/if}}
+</template>
