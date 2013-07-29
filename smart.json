@@ -1,5 +1,8 @@
 {
   "packages": {
-    "spin": {}
+    "spin": {},
+    "momentjs": {},
+    "collection-api": {},
+    "twit": {}
   }
 }

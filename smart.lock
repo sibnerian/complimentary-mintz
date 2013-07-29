@@ -2,13 +2,31 @@
   "meteor": {},
   "dependencies": {
     "basePackages": {
-      "spin": {}
+      "spin": {},
+      "momentjs": {},
+      "collection-api": {},
+      "twit": {}
     },
     "packages": {
       "spin": {
         "git": "https://github.com/SachaG/meteor-spin.git",
         "tag": "v0.2.0",
         "commit": "fd3a2871a69442848b4b4e74f5e1ae28fa4a95a4"
+      },
+      "momentjs": {
+        "git": "https://github.com/crapthings/meteor-momentjs.git",
+        "tag": "v2.1.0",
+        "commit": "f421f51c2cb40093374a83adb932937da2f991d3"
+      },
+      "collection-api": {
+        "git": "https://github.com/crazytoad/meteor-collectionapi.git",
+        "tag": "v0.1.14",
+        "commit": "d42ba1681289cb093afa7c67500862241df15f9e"
+      },
+      "twit": {
+        "git": "https://github.com/subhog/meteor-twit.git",
+        "tag": "v0.1.0",
+        "commit": "02ac07c43ac66e5c07e77a579b38d4595ff7bf9d"
       }
     }
   }

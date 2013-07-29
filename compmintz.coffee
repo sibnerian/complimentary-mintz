@@ -1,43 +1,28 @@
 @Quotes = new Meteor.Collection "quotes"
-#Quotes.insert({text: "text', date:"formatted-date" })
+#Quotes.insert({text: "text', submitted:"formatted-date" })
 
 #Template logic
 if Meteor.isClient
 
-  Template.quoteEnter.preserve ['.quote-enter', '.date']
+  Template.quoteEnter.preserve ['.quote-enter']
 
-  Template.quotes.quoteList = @Quotes.find({})
+  Template.quotes.quoteList = @Quotes.find({}, sort: submitted: -1  )
+
+  Template.quote.submitted_formatted = -> if this.submitted? then moment(this.submitted).fromNow() else 'NO DATA'
+
   Template.quoteEnter.entering = () ->
     Session.get 'entering'
 
   Template.quoteEnter.events
     'click .submit':
       (event, template) ->
-        text = $(template.find '.quote-enter').val()
-        datetime_raw = $(template.find '.date').val()
-        date = moment datetime_raw, 'MM/D/YYYY h:ma'
-        if (date.isBefore moment())
-          Session.set 'entering-errors', false
-          $(template.find '.date').val ''
-          $(template.find '.quote-enter').val ''
-          Quotes.insert
-            text: text
-            date: date.format()
-        else
+        text = $(template.find '.quote-enter').val()        
+        if text is ''
           Session.set 'entering-errors',true
-
-
-  Template.quoteEnter.rendered = () ->
-    $(@.find '.date').datetimepicker
-      timeFormat: 'h:mmtt'
-      stepHour: 1
-      stepMinute: 15
-      addSliderAccess: true
-      sliderAccessArgs: {touchonly : false}
+        else
+          console.log moment().valueOf()
+          Quotes.insert text: text, submitted: moment().valueOf()
+          $(template.find '.quote-enter').val('')
 
   Template.quoteEnter.errors = () ->
     Session.get 'entering-errors'
-
-if Meteor.isServer
-  Meteor.startup () ->
-    console.log 'Server started successfully!'

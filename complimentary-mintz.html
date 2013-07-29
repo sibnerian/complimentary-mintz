@@ -3,6 +3,16 @@
 </head>
 
 <body>
+  <div class='container'>
+    <div class="heading">Welcome to the Mintz quotes repository.</div> 
+    <div class="explanation">The purpose of this site is twofold:
+      <ol>
+        <li>Provide a place to quickly log the craziness that comes out of Max Mintz's mouth on a daily basis.</li>
+        <li>Expose the quote list as an API so that people can use Mintz quotes as sample data</li>
+      </ol>
+    </div>
+    <div>You can enter quotes here, or tweet with any combination of the following: @MaxMintzzz, @CompMintz, or #MaxMintz.  We'll scrape Twitter every couple minutes and add the most recent quotes to the list. Thanks!</div>
+  </div>
   {{> quoteEnter}}
   {{> quotes}}
 </body>
@@ -16,17 +26,20 @@
 <template name="quotes">
     <div class="quotes">
         {{#each quoteList}}
-        <div class="quote">{{text}}</div>
+          {{> quote }}
         {{/each}}
     </div>
+</template>
+
+<template name="quote">
+  <div class="quote">{{text}}</div>
+  <div> {{ submitted_formatted }} </div>
 </template>
 
 <template name="quoteEnter">
     {{#if entering}}
         <p>Enter your favorite Mintz quote.</p>
-        <input class="quote-enter">
-        <p>What date was that?</p>
-        <input class="date">
+        <textarea class="quote-enter"></textarea>
         <button class='submit'>Submit</button>
         {{#if errors}}
             <p>Please correct errors</p>
@@ -34,3 +47,4 @@
 
     {{/if}}
 </template>
+
