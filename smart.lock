@@ -5,7 +5,8 @@
       "spin": {},
       "momentjs": {},
       "collection-api": {},
-      "twit": {}
+      "twit": {},
+      "zurb-foundation": {}
     },
     "packages": {
       "spin": {
@@ -27,6 +28,11 @@
         "git": "https://github.com/subhog/meteor-twit.git",
         "tag": "v0.1.0",
         "commit": "02ac07c43ac66e5c07e77a579b38d4595ff7bf9d"
+      },
+      "zurb-foundation": {
+        "git": "https://github.com/MixinLabs/meteor-foundation.git",
+        "tag": "v0.1.7",
+        "commit": "f2f179f4017ec38128273cf08c76f2198f417d81"
       }
     }
   }

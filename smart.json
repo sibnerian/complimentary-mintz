@@ -3,6 +3,7 @@
     "spin": {},
     "momentjs": {},
     "collection-api": {},
-    "twit": {}
+    "twit": {},
+    "zurb-foundation": {}
   }
 }

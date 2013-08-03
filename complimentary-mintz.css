@@ -1,5 +1,42 @@
+.quoteContainer{
+  margin-bottom: 20px;
+}
 
+.desktop .quoteBlock{
+  height: 220px !important;
+}
 
+.mobile .quoteBlock{
+  height: 250px !important;
+  font-size: 1.5rem;
+}
+
+.quoteBlock{
+  padding: 25px;
+}
+
+.quote-padding{
+  position: relative;
+  padding: 0.8em;
+  padding-bottom: 1.15em;
+  border-radius: 5px;
+  border: 2px solid #e7e7e7;
+  background: #e7e7e7;
+  height: 100%;
+}
+
+.quote-padding:hover, .selected.quote-padding{
+  border: 2px dotted #808080;
+}
+.mobile{
+  font-size: 2rem;
+}
+
+.date{
+  position: absolute;
+  bottom: 0.15em;
+  right: 0.4em;
+}
 /* timepicker stuff */
 .ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
 .ui-timepicker-div dl { text-align: left; }
