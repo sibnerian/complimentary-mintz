@@ -4,6 +4,7 @@
     "momentjs": {},
     "collection-api": {},
     "twit": {},
-    "zurb-foundation": {}
+    "zurb-foundation": {},
+    "paginated-subscription": {}
   }
 }

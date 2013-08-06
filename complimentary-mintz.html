@@ -2,9 +2,6 @@
     <link rel="stylesheet" href="jquery-ui-1.10.3.custom.min.css">
 </head>
 
-
-
-
 <template name="mainTemplate">
     {{#if isMobile}}
     <div class="mobile">
@@ -32,6 +29,7 @@
     </div>
     {{> quoteEnter}}
     {{> quotes}}
+    {{> loadMore }}
     </div>
 </template>
 
@@ -39,10 +37,18 @@
     {{>mainTemplate}}
 </body>
 
+<template name="loadMore">
+        <div class="row">
+        <div class="small-12 columns">
+            <button class="large radius button expand load-more">Load More</button>
+        </div>
+    </div>
+</template>
+
 <template name="quotes">
     <div class="row">
-        <div class="small-12 columns">
-            <ul class="small-block-grid-4 hide-for-touch">
+        <div class="small-12 large-12 columns">
+            <ul class="large-block-grid-4 small-block-grid-2 hide-for-touch">
                 {{#each quoteList}}
                 {{> quote }}
                 {{/each}}
@@ -81,7 +87,7 @@
         </div>
         {{#if errors}}
             <div class="row">
-                <div class="small-12 columns">
+                <div class="small-12 large-12 columns">
                     {{#if blankError}}
                     <div class="alert-box alert round">You need to actually enter something in the box...</div>
                     {{/if}}

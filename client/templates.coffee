@@ -1,4 +1,4 @@
-Meteor.subscribe "quotes"
+handle = Meteor.subscribeWithPagination "quotes", 12
 
 @Quotes = new Meteor.Collection "quotes"
 
@@ -34,3 +34,7 @@ Template.quoteEnter.events
       Session.set 'entering-errors', false
       Meteor.call('addQuote', text)
       $(template.find '.quote-enter').val('')
+
+Template.loadMore.events
+  'click .load-more': () ->
+    handle.loadNextPage()

@@ -6,7 +6,8 @@
       "momentjs": {},
       "collection-api": {},
       "twit": {},
-      "zurb-foundation": {}
+      "zurb-foundation": {},
+      "paginated-subscription": {}
     },
     "packages": {
       "spin": {
@@ -33,6 +34,11 @@
         "git": "https://github.com/MixinLabs/meteor-foundation.git",
         "tag": "v0.1.7",
         "commit": "f2f179f4017ec38128273cf08c76f2198f417d81"
+      },
+      "paginated-subscription": {
+        "git": "https://github.com/tmeasday/meteor-paginated-subscription.git",
+        "tag": "v0.1.2",
+        "commit": "35e0c6112df2b4cfeb60b559276a93cac5ee2dd6"
       }
     }
   }
