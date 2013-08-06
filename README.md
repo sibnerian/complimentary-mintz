@@ -40,6 +40,9 @@ If you want to search for different keywords, all you need to do is modify the `
 You can also use getUserTweets to include all tweets made by a certain user - in the case of the Mintz site, this user is @MaxMintzzz.
 All keywords specified this way will be filtered out of the published results.
 
+To remove stuff from the database, just pop up the javascript console in Chrome. There, you can run `Meteor.call('removeQuote', query, yourSecretPassWord)`
+to get rid of anything fitting the mongo query `query` from the database. Don't give your password out, and nobody but you can successfully remove things.
+
 You'll probably want to change the HTML too. This is pretty self-explanatory, since all you'll need to change is the description.
 Open up `complimentary-mintz.html` and go to town.
 
