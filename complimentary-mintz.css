@@ -2,9 +2,18 @@
   margin-bottom: 20px;
 }
 
-.desktop .quoteBlock{
-  height: 220px !important;
+@media (max-width: 765px){
+  .desktop .quoteBlock{
+    height: 16.5rem !important;
+  }
 }
+
+@media (min-width: 765px){
+  .desktop .quoteBlock{
+    height: 17rem !important;
+  }
+}
+
 
 .mobile .quoteBlock{
   height: 250px !important;
