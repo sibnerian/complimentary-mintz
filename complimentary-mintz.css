@@ -28,6 +28,10 @@
 .quote-padding:hover, .selected.quote-padding{
   border: 2px dotted #808080;
 }
+
+.quote{
+  word-wrap: break-word;
+}
 .mobile{
   font-size: 2rem;
 }

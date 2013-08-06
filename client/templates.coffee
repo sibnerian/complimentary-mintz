@@ -32,8 +32,5 @@ Template.quoteEnter.events
       Session.set 'entering-errors', 'tooLongError'
     else
       Session.set 'entering-errors', false
-      Quotes.insert(text:text, submitted: moment().valueOf())
+      Meteor.call('addQuote', text)
       $(template.find '.quote-enter').val('')
-
-    console.log Session.get 'entering-errors'
-    console.log Template.quoteEnter.errors()
