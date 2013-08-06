@@ -47,3 +47,6 @@ Open up `complimentary-mintz.html` and go to town.
 Of course, this site would be fairly boring without an API. The API provides a convenient endpoint to grab
 a large list of Mintz quotes, which can then be used (for example) as filler data for other projects. This endpoint is
 `/quotesAPI` by default. You can change this endpoint if you want by changing the apiPath parameter in `server/startup.coffee`
+
+#### Shoutout
+Shoutout to [Mike Bannister](https://github.com/possibilities) for making Meteorite and generally being awesome! Mike is dope!
