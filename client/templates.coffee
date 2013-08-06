@@ -23,17 +23,25 @@ Template.quoteEnter.blankError = () ->
 Template.quoteEnter.tooLongError = () ->
   (Session.get 'entering-errors') is 'tooLongError'
 
+submitQuote = (template) ->
+  text = $(template.find '.quote-enter').val()
+  if text is ''
+    Session.set 'entering-errors', 'blankError'
+  else if text.length > 160
+    Session.set 'entering-errors', 'tooLongError'
+  else
+    Session.set 'entering-errors', false
+    Meteor.call('addQuote', text)
+    $(template.find '.quote-enter').val('')
+
+
 Template.quoteEnter.events
+  'keypress .quote-enter': (event, template) ->
+    if event.which is 13
+      submitQuote(template)
   'click .submit': (event, template) ->
-    text = $(template.find '.quote-enter').val()
-    if text is ''
-      Session.set 'entering-errors', 'blankError'
-    else if text.length > 160
-      Session.set 'entering-errors', 'tooLongError'
-    else
-      Session.set 'entering-errors', false
-      Meteor.call('addQuote', text)
-      $(template.find '.quote-enter').val('')
+    submitQuote(template)
+    
 
 Template.loadMore.events
   'click .load-more': () ->
