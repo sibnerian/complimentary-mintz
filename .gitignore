@@ -1,1 +1,4 @@
 server/secret
+.idea
+.meteor
+packages
