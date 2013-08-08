@@ -1,4 +1,4 @@
 server/secret
 .idea
-.meteor
+.meteor/local
 packages

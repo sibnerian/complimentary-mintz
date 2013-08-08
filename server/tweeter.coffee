@@ -30,8 +30,11 @@ getUserTweets = (screenName) ->
           LastTweets.insert {string: screenName, since_id: since_id}
       _.each reply.reverse(), (tweet)->
         runFiber ->
-          console.log tweet
-          Quotes.insert text: filterSearchTerms(tweet.text), submitted: moment(tweet.created_at).valueOf()
+          if not (Quotes.findOne {text: filterSearchTerms(tweet.text)})?
+            console.log tweet
+            Quotes.insert text: filterSearchTerms(tweet.text), submitted: moment(tweet.created_at).valueOf()
+          else
+            console.log "No new tweets from #{screenName}"
 
 searchForTweets = (query) ->
   filter = q: query, count: 100, result_type: 'recent'
@@ -58,8 +61,11 @@ searchForTweets = (query) ->
           LastTweets.insert {string: query, since_id: since_id}
       _.each reply.statuses.reverse(), (tweet) ->
         runFiber ->
-          console.log tweet.text
-          Quotes.insert text: filterSearchTerms(tweet.text), submitted: moment(tweet.created_at).valueOf()
+          if not (Quotes.findOne {text: filterSearchTerms(tweet.text)})?
+            console.log tweet.text
+            Quotes.insert text: filterSearchTerms(tweet.text), submitted: moment(tweet.created_at).valueOf()
+          else
+            console.log "No new tweets for #{query}"
 
 Meteor.setInterval () -> 
   _.each(searchTerms, searchForTweets)
